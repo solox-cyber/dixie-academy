@@ -26,6 +26,6 @@ class Course extends Model
 
     public function getExcerpt()
     {
-        return Str::limit(strip_tags($this->description), 150);
+        return Str::limit(strip_tags($this->description), 80);
     }
 }

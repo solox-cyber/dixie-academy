@@ -1,4 +1,24 @@
 <x-guest-layout title="Resource Page">
+
+    <style>
+        .our-courses .item {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            /* Smooth transition for scaling */
+        }
+
+        .our-courses .item:hover {
+            transform: scale(1.1);
+            /* Scale up by 10% on hover */
+        }
+
+
+        .our-courses .item .down-content .info a:hover {
+            background-color: #d29216;
+        }
+    </style>
+
     <section class="our-courses" id="courses">
         <div class="container">
             <div class="row">
@@ -10,7 +30,7 @@
                 <div class="col-lg-12">
                     <div class="owl-courses-item owl-carousel">
                         @foreach ($freeresources as $resource)
-                        <x-freeresources :resource="$resource"  />
+                        <x-freeresources :resource="$resource" />
                         @endforeach
 
                     </div>
@@ -32,14 +52,16 @@
                     <div class="owl-courses-item owl-carousel">
                         @foreach ($paidresources as $paidresource)
                         <div class="item">
-                            <img src="{{ $paidresource->getThumbnailImage() }}" alt="{{$paidresource->title}}">
+                            <img src="{{ $paidresource->getThumbnailImage() }}" alt="{{$paidresource->title}}"
+                                style="height:220px;width:500px">
                             <div class="down-content">
                                 <h4>{{$paidresource->title}}</h4>
                                 <div class="info">
                                     <div class="row">
                                         <div class="col-8">
                                             <div class="main-button-red">
-                                                <a href="{{route('resources')}}">Purchase</a>
+                                                <a wire:navigate
+                                                    href="{{route('resource.show', $paidresource->id)}}">Purchase</a>
                                             </div>
                                         </div>
                                         <div class="col-4">

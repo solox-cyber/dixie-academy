@@ -11,23 +11,26 @@
                     @foreach ($courses as $course)
                     <div class="col-lg-4">
                         <div class="meeting-item">
-                          <div class="thumb">
-                            <div class="price">
-                              <span style="color:#fff!important">${{$course->price}}</span>
+                            <div class="thumb">
+                                <div class="price">
+                                    <span style="color:#fff!important">${{$course->price}}</span>
+                                </div>
+                                <a><img src="{{$course->getThumbnailImage()}}"
+                                        alt="{{$course->title}}"></a>
                             </div>
-                            <a href="meeting-details.html"><img src="{{$course->getThumbnailImage()}}" alt="{{$course->title}}"></a>
-                          </div>
-                          <div class="down-content">
-                            <a href="meeting-details.html"><h4>{{$course->title}}</h4> </a>
-                            <h3 style="margin-bottom:23px"><i class="fa fa-user"></i>
-                                {{$course->instructor}}</h3>
-                            {{-- <p>{{$course->getExcerpt()}}</p> --}}
-                            <div class="main-button-red">
-                                <a wire:navigate href="{{route('course.show', $course->id)}}">Enroll</a>
-                              </div>
-                          </div>
+                            <div class="down-content">
+                                <a>
+                                    <h4>{{$course->title}}</h4>
+                                </a>
+                                <h3 style="margin-bottom:23px"><i class="fa fa-user"></i>
+                                    {{$course->instructor}}</h3>
+                                {{-- <p>{{$course->getExcerpt()}}</p> --}}
+                                <div class="main-button-red">
+                                    <a wire:navigate href="{{route('course.show', $course->id)}}">Enroll</a>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                    </div>
                     @endforeach
 
                 </div>

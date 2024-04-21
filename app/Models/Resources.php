@@ -17,6 +17,8 @@ class Resources extends Model
         'image',
         'price',
         'description',
+        'fileUploaded',
+        'no_idea_forex',
     ];
 
     public function getThumbnailImage()

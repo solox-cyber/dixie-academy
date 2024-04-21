@@ -1,15 +1,15 @@
 <x-guest-layout title="About Page">
     <section class="heading-page header-text" id="top">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <h2>ABOUT DIXIE ACADEMY</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>ABOUT US</h2>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </section>
 
-      <section class="apply-now" id="apply">
+    <section class="apply-now" id="apply">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 align-self-center">
@@ -25,11 +25,9 @@
                                     </div>
                                     <div class="accordion-body">
                                         <div class="content">
-                                            <p>If you want to get the latest collection of HTML CSS templates for your
-                                                websites, you may visit <a rel="nofollow" href="https://www.toocss.com/"
-                                                    target="_blank">Too CSS website</a>. If you need a working contact
-                                                form script, please visit <a href="https://templatemo.com/contact"
-                                                    target="_parent">our contact page</a> for more info.</p>
+                                            <p>
+                                                {!! $aboutProfile->who_am_i !!}
+                                            </p>
                                         </div>
                                     </div>
                                 </article>
@@ -49,11 +47,9 @@
                                     </div>
                                     <div class="accordion-body">
                                         <div class="content">
-                                            <p>If you want to get the latest collection of HTML CSS templates for your
-                                                websites, you may visit <a rel="nofollow" href="https://www.toocss.com/"
-                                                    target="_blank">Too CSS website</a>. If you need a working contact
-                                                form script, please visit <a href="https://templatemo.com/contact"
-                                                    target="_parent">our contact page</a> for more info.</p>
+                                            <p>
+                                                {!!$aboutProfile->about_dixie!!}
+                                            </p>
                                         </div>
                                     </div>
                                 </article>
@@ -78,67 +74,19 @@
                 <div class="col-lg-12">
                     <div class="owl-service-item owl-carousel">
 
-                        <div class="item">
-                            <div class="icon">
-                                <img src="assets/images/service-icon-01.png" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Best Education</h4>
-                                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non
-                                    vestibulum.</p>
-                            </div>
-                        </div>
+                        @foreach ($aboutProfile->images as $image)
+                            <img src="{{$image->getThumbnailImage()}}" alt="" style="height:300px;width:720px">
 
-                        <div class="item">
-                            <div class="icon">
-                                <img src="assets/images/service-icon-02.png" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Best Teachers</h4>
-                                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non
-                                    vestibulum.</p>
-                            </div>
-                        </div>
+                        @endforeach
 
-                        <div class="item">
-                            <div class="icon">
-                                <img src="assets/images/service-icon-03.png" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Best Students</h4>
-                                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non
-                                    vestibulum.</p>
-                            </div>
-                        </div>
 
-                        <div class="item">
-                            <div class="icon">
-                                <img src="assets/images/service-icon-02.png" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Online Meeting</h4>
-                                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non
-                                    vestibulum.</p>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="icon">
-                                <img src="assets/images/service-icon-03.png" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Best Networking</h4>
-                                <p>Suspendisse tempor mauris a sem elementum bibendum. Praesent facilisis massa non
-                                    vestibulum.</p>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="upcoming-meetings" id="meetings">
+    <section class="upcoming-meetings-about" id="meetings">
     </section>
 
 </x-guest-layout>

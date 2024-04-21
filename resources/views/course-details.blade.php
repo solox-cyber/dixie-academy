@@ -1,4 +1,5 @@
 <x-guest-layout title="Course Details Page">
+    
     <style>
         section.heading-course-page {
     background-image: url({{$course->getThumbnailImage()}});
@@ -90,52 +91,63 @@ section.heading-course-page h2 {
                       </div>
                     </div>
                     <div class="down-content">
-                      <a href="meeting-details.html"><h4>{{$course->title}}</h4></a>
+                      <a><h4>{{$course->title}}</h4></a>
                       <p><i class="fa fa-user"></i> {{$course->instructor}}</p>
-                      <p class="description">
-                        {{$course->description}}
+                      <hr>
+                      <br>
+                      <p>
+                        {!!$course->description!!}
                       </p>
+                      <br>
+                      <hr>
+
                       <div class="row">
                         <div class="col-lg-12">
-                            <form id="contact" action="#" method="post">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <h2>Application Form</h2>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <fieldset>
-                                            <input name="name" type="text" id="name" placeholder="YOURNAME...*"
-                                                required="">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <fieldset>
-                                            <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*"
-                                                placeholder="YOUR EMAIL..." required="">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <fieldset>
-                                            <input name="subject" type="text" id="subject" placeholder="SUBJECT...*"
-                                                required="">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <textarea name="message" type="text" class="form-control" id="message"
-                                                placeholder="YOUR MESSAGE..." required=""></textarea>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <button type="submit" id="form-submit" class="button">SEND MESSAGE
-                                                NOW</button>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                            </form>
+                            <br>
+                            <div id="paymentOptions" style="margin-bottom: 50px!important">
+                                <h2 style="font-weight:800">Payment Options</h2>
+                                {{-- <input type="radio" id="amazon" name="payment" value="amazon">
+                                <label for="amazon">Amazon</label><br> --}}
+                                <input type="radio" id="cryptocurrency" name="payment" value="cryptocurrency">
+                                <label for="cryptocurrency">Cryptocurrency</label><br>
+                                <input type="radio" id="paystack" name="payment" value="paystack">
+                                <label for="paystack">Card/Bank Transfer</label><br>
+                            </div>
+                            <div id="amazonPayment" style="display:none;">
+                                <!-- Content for Amazon payment option goes here -->
+                                Amazon Payment Option Selected
+                            </div>
+                            <div id="cryptocurrencyPayment" style="display:none;">
+                                <!-- Content for Cryptocurrency payment option goes here -->
+                                Cryptocurrency Payment Option Selected
+                            </div>
+                            <div id="paystackPayment" style="display:none;">
+                                <!-- Content for Paystack payment option goes here -->
+                                Paystack Payment Option Selected
+                            </div>
                         </div>
-                      </div>
+                    </div>
+
+                    <script>
+                        // Function to toggle display of payment option content
+                        function togglePaymentOption(paymentOption) {
+                            document.getElementById("amazonPayment").style.display = "none";
+                            document.getElementById("cryptocurrencyPayment").style.display = "none";
+                            document.getElementById("paystackPayment").style.display = "none";
+
+                            document.getElementById(paymentOption + "Payment").style.display = "block";
+                        }
+
+                        // Event listener to toggle payment option content based on selected radio button
+                        var paymentRadios = document.getElementsByName("payment");
+                        for (var i = 0; i < paymentRadios.length; i++) {
+                            paymentRadios[i].addEventListener("click", function() {
+                                togglePaymentOption(this.value);
+                            });
+                        }
+                    </script>
+
+
                     </div>
                   </div>
                 </div>

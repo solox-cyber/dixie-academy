@@ -380,7 +380,7 @@ header
 
 .header-area .main-nav .nav li.has-sub ul.sub-menu {
   position: absolute;
-  width: 200px;
+  width: 350px;
   box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
   overflow: hidden;
   top: 40px;
@@ -896,6 +896,17 @@ section.upcoming-meetings {
   padding-top: 230px;
   padding-bottom: 110px;
 }
+
+section.upcoming-meetings-about {
+    background-image: url(../images/meetings-bg.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 130px;
+    padding-bottom: 80px;
+  }
+
 
 section.upcoming-meetings .section-heading {
   text-align: center;
@@ -1536,7 +1547,7 @@ section.meetings-page .filters li {
   text-transform: uppercase;
   transition: all .3s;
   cursor: pointer;
-  margin: 0px 3px;
+  margin: 8px 3px;
 }
 
 section.meetings-page .filters ul li.active,
@@ -1808,6 +1819,10 @@ responsive
 
   section.upcoming-meetings {
     padding-top: 500px;
+  }
+
+  section.upcoming-meetings-about {
+    padding-top: 400px;
   }
 
   section.upcoming-meetings .categories {

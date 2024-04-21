@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Post::factory(100)->create();
         // \App\Models\Category::factory(5)->create();
         // \App\Models\Resources::factory(20)->create();
-        \App\Models\Course::factory()->count(10)->create();
+        // \App\Models\Course::factory()->count(10)->create();
+
+        // $aboutProfile = \App\Models\AboutProfile::factory()->create();
+        // $aboutProfile->images()->createMany(\App\Models\AboutProfileImage::factory()->count(7)->make()->toArray());
+
+         \App\Models\Profitable::factory()->create();
     }
 }
